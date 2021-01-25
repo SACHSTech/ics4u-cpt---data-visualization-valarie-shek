@@ -8,6 +8,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class MainMenu{
-    
+public abstract class MainMenu{
+
+    public MainMenu(){
+
+    }
+    public abstract double getAverage();
 }
+
