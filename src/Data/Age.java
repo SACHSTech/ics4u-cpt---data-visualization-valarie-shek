@@ -2,9 +2,14 @@ package Data;
 
 public class Age extends MainMenu{
     
-    private double test1;
+    private int Age;
+    private int TotalNum;
 
+    public int TotalNum(){
+        return TotalNum++;
+    }
+    
     public double getAverage(){
-        return test1;
+        return Age;
     }
 }
