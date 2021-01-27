@@ -1,7 +1,10 @@
 package Data;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
+import java.util.*;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -12,16 +15,51 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 
+
 public class MainMenu extends Application{
     public static void main (String[] args) throws IOException{
+        /*
         BufferedReader thefile = new BufferedReader(new FileReader("C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv"));
-        ////var fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\test.txt";
-        ////var filePath = Paths.get(fileName);
-        //// BufferedReader thefile = new BufferedReader(new FileReader(filePath));
-        String example = "";
-        example = thefile.readLine();
-        System.out.println(example);
+        ArrayList<String> listOfLines = new ArrayList<>();
+        String line = thefile.readLine();
+        while(line != null){
+            line = thefile.readLine();
+            thefile.add(line);
+        }
         thefile.close();
+        System.out.println(thefile);
+        */
+
+        String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
+        File file = new File(fileName);
+
+        List<List<String>> lines = new ArrayList<>();
+        Scanner inputStream;
+
+        try{
+            inputStream = new Scanner (file);
+
+            while(inputStream.hasNext()){
+                String line = inputStream.next();
+                String[] values  =line.split(",");
+                lines.add(Arrays.asList(values));
+            }
+            inputStream.close();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+
+        int lineNo = 1;
+        for(List<String> line: lines){
+            int columnNo = 1;
+            for(String value: line){
+                System.out.println("Line"+lineNo+"Column"+columnNo+":"+value);
+                columnNo++;
+            }
+            lineNo++;
+        }
+
+        
         launch(args);
     }
 
