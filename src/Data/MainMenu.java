@@ -18,36 +18,8 @@ import javafx.stage.Stage;
 
 public class MainMenu extends Application{
     public static void main (String[] args) throws IOException{
-        String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
-        File file = new File(fileName);
-
-        List<List<String>> lines = new ArrayList<>();
-        Scanner inputStream;
-
-        try{
-            inputStream = new Scanner (file);
-
-            while(inputStream.hasNext()){
-                String line = inputStream.next();
-                String[] values  =line.split(",");
-                lines.add(Arrays.asList(values));
-            }
-            inputStream.close();
-        }catch (FileNotFoundException e){
-            e.printStackTrace();
-        }
-
-        int lineNo = 1;
-        for(List<String> line: lines){
-            int columnNo = 1;
-            for(String value: line){
-                System.out.println("Line"+lineNo+"Column"+columnNo+":"+value);
-                columnNo++;
-            }
-            lineNo++;
-        }
-
         
+       // System.out.println(methods.MakeList());
         launch(args);
     }
 
@@ -56,18 +28,25 @@ public class MainMenu extends Application{
         primaryStage.setTitle("Hello World!");
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
+        Button age = new Button();
+        age.setText("Age");
+        age.setOnAction(new EventHandler<ActionEvent>(){
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Age testing");
+            }
+        });
         btn.setOnAction(new EventHandler<ActionEvent>() {
  
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Hello World!");
-                System.out.println("test Trial");
-                System.out.println("Test2");
             }
         });
         
         StackPane root = new StackPane();
         root.getChildren().add(btn);
+        root.getChildren().add(age);
         primaryStage.setScene(new Scene(root, 300, 250));
         primaryStage.show();
     
