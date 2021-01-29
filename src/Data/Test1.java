@@ -173,7 +173,7 @@ public class Test1 extends Application {
         TPARaverage.setMaxSize(220,100);
         MPaverage.setMaxSize(150,100);
         GPaverage.setMaxSize(150,100);
-        HBox hbox = new HBox(age, Aaverage, name, team, position, mp, MPaverage, TPARaverage, GPaverage);
+        HBox hbox = new HBox(age, name, team, position, mp, Aaverage, MPaverage, TPARaverage, GPaverage);
         hbox.setAlignment(Pos.CENTER);
         hbox.setSpacing(5);
         primaryStage.setScene(new Scene(hbox, 900, 600));
