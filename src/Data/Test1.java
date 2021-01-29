@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 
 public class Test1 extends Application {
     public static void main(String[] args) throws IOException {
+        System.out.println("testing");
         launch(args);
     }
 
