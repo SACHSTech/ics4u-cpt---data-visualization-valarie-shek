@@ -84,6 +84,37 @@ public class methods {
         return -1;
     }
 
+    public static double Ages(double ages){
+        String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
+        File file = new File(fileName);
+
+        List<List<String>> lines = new ArrayList<>();
+        Scanner inputStream;
+
+        try{
+            inputStream = new Scanner (file);
+
+            System.out.println("Player       Pos     Age    Tm    G    MP    PER    TS%    3PAr    FTr    ORB%    DRB%     TRB%    AST%    STL%    BLK%    TOV%    USG%    OWS    DWS    WS    WS/48    OBPM    DBPM    BPM    VORP");
+            
+
+            while(inputStream.hasNext()){
+                String line = inputStream.next();
+                String[] values = line.split(",");
+                lines.add(Arrays.asList(values));
+                
+            }
+        for (int i = 1; i < 105; i++) {
+            double dummy = Double.parseDouble(lines.get(i).get(2));
+            ages = dummy + ages;
+            }
+        
+            inputStream.close();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+        return ages;
+    }
+    
     public static String AgeMethod(String Age) {
         String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
         File file = new File(fileName);
@@ -318,6 +349,10 @@ public class methods {
         }
         return fileName;
     }
+
+	public static Object ages() {
+		return null;
+	}
 
 
 }

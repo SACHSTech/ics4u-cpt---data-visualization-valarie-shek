@@ -2,20 +2,28 @@ package Data;
 
 public class Age extends MainMenu{
     
-    private int Age;
+    private double ages;
     private int TotalNum;
     private double average;
 
-    public int TotalNum(){
+    public Age(String name, double ages)
+    {
+        super(name);
+        this.ages = ages;
+    }
+    
+    public Age(double ages)
+    {
+        this("Ages", ages);
+    }
+
+    public int TotalNum() {
         return TotalNum++;
     }
 
-    public void setAge(int Age) {
-        this.Age = Age;
-    }
 
-    public int getAge(){
-        return Age;
+    public double getAge(){
+        return ages;
     }
     
     public double getAverage(){
