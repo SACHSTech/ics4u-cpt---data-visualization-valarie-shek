@@ -22,8 +22,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class Test1 extends Application {
-    
-
     public static void main(String[] args) throws IOException {
         System.out.println("testing");
         launch(args);
@@ -37,11 +35,22 @@ public class Test1 extends Application {
         Button team = new Button();
         Button position = new Button();
         Button mp = new Button();
+        Button Aaverage = new Button();
+        Aaverage.setText("Average Age");
         mp.setText("Minutes Played");
         position.setText("Position");
         team.setText("Team");
         name.setText("Name");
         age.setText("Age");
+
+        Aaverage.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+            double ages = methods.Ages();
+            MainMenu test = new Age(ages);
+            System.out.println(test.getAverage());
+            }
+        });
 
         age.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -127,9 +136,10 @@ public class Test1 extends Application {
         team.setMaxSize(150, 75);
         position.setMaxSize(150, 75);
         mp.setMaxSize(150, 75);
-        HBox hbox = new HBox(age, name, team, position, mp);
+        Aaverage.setMaxSize(150,75);
+        HBox hbox = new HBox(age, Aaverage, name, team, position, mp);
         hbox.setAlignment(Pos.CENTER);
-        primaryStage.setScene(new Scene(hbox, 350, 300));
+        primaryStage.setScene(new Scene(hbox, 600, 600));
         primaryStage.show();
     
     }

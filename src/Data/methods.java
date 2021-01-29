@@ -16,6 +16,9 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class methods {
+    public static void main(String[] args)throws IOException{
+        
+    }
     private static int[] removeTheElement(int[] sidewaysArray, int index1) {
         if (sidewaysArray == null
             || index1 <0
@@ -84,13 +87,14 @@ public class methods {
         return -1;
     }
 
-    public static double Ages(double ages){
+    public static double Ages(){
         String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
         File file = new File(fileName);
 
         List<List<String>> lines = new ArrayList<>();
         Scanner inputStream;
 
+        double ages = 0;
         try{
             inputStream = new Scanner (file);
 

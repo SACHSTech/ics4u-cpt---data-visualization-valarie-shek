@@ -14,22 +14,14 @@ public class Age extends MainMenu{
     {
         this("Ages", ages);
     }
-    public int TotalNum() {
-        return TotalNum++;
-    }
+
     public double getAge(){
         return ages;
     }
 
     public double getAverage(){
+        average = ((ages/104)*100.00)/100.00;
         return average;
     }
-    public void setAverage(int Age){
-        double holder = 0;
-
-        average = holder + Age;
-        holder = average;
-
-        this.average = Age;
-    }
+    
 }
