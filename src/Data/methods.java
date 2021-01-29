@@ -150,6 +150,38 @@ public class methods {
                 lines.add(Arrays.asList(values));
                 
             }
+        // choose age
+        for (int i = 1; i < 105; i++) {
+            if (lines.get(i).get(2).equalsIgnoreCase(Age)) {
+                System.out.println(lines.get(i));
+            }
+        }
+            inputStream.close();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+        return fileName;
+    }
+        
+    public static String TeamMethod(String Team) {
+        String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
+        File file = new File(fileName);
+
+        List<List<String>> lines = new ArrayList<>();
+        Scanner inputStream;
+
+        try{
+            inputStream = new Scanner (file);
+
+            System.out.println("Player       Pos     Age    Tm    G    MP    PER    TS%    3PAr    FTr    ORB%    DRB%     TRB%    AST%    STL%    BLK%    TOV%    USG%    OWS    DWS    WS    WS/48    OBPM    DBPM    BPM    VORP");
+            
+
+            while(inputStream.hasNext()){
+                String line = inputStream.next();
+                String[] values = line.split(",");
+                lines.add(Arrays.asList(values));
+                
+            }
             int token = 1;
             if(token ==1){
                 int a;
@@ -169,31 +201,103 @@ public class methods {
                 lines.set(i+1, test2);
             }
             }
-            for(int j = 0; j<104; j++){
-            System.out.println("whole arraylist"+lines.get(j));
-            }
         }
-
-        // choose age
-        //BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
-        //System.out.println("enter age");
-        //String age = keyboard.readLine();
-        //String age;
+        // choose team
         for (int i = 1; i < 105; i++) {
-            if (lines.get(i).get(2).equalsIgnoreCase(Age)) {
+            if (lines.get(i).get(3).equalsIgnoreCase(Team)) {
                 System.out.println(lines.get(i));
             }
         }
-
-
-            
-
             inputStream.close();
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }
         return fileName;
     }
-        
+
+    public static String NameMethod(String Name) {
+        String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
+        File file = new File(fileName);
+
+        List<List<String>> lines = new ArrayList<>();
+        Scanner inputStream;
+
+        try{
+            inputStream = new Scanner (file);
+
+            System.out.println("Player       Pos     Age    Tm    G    MP    PER    TS%    3PAr    FTr    ORB%    DRB%     TRB%    AST%    STL%    BLK%    TOV%    USG%    OWS    DWS    WS    WS/48    OBPM    DBPM    BPM    VORP");
+            
+
+            while(inputStream.hasNext()){
+                String line = inputStream.next();
+                String[] values = line.split(",");
+                lines.add(Arrays.asList(values));
+                
+            }
+            
+        // choose name
+        for (int i = 1; i < 105; i++) {
+            if (lines.get(i).get(0).equalsIgnoreCase(Name)) {
+                System.out.println(lines.get(i));
+            }
+        }
+            inputStream.close();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+        return fileName;
+    }
+
+    public static String PositionMethod(String Position) {
+        String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
+        File file = new File(fileName);
+
+        List<List<String>> lines = new ArrayList<>();
+        Scanner inputStream;
+
+        try{
+            inputStream = new Scanner (file);
+
+            System.out.println("Player       Pos     Age    Tm    G    MP    PER    TS%    3PAr    FTr    ORB%    DRB%     TRB%    AST%    STL%    BLK%    TOV%    USG%    OWS    DWS    WS    WS/48    OBPM    DBPM    BPM    VORP");
+            
+
+            while(inputStream.hasNext()){
+                String line = inputStream.next();
+                String[] values = line.split(",");
+                lines.add(Arrays.asList(values));
+                
+            }
+            int token = 1;
+            if(token ==1){
+                int a;
+            for(int j = 1; j<104; j++){
+                for(int i = 1; i<104; i++){
+                a = Integer.parseInt(lines.get(i).get(2));
+                int b = Integer.parseInt(lines.get(i+1).get(2));
+                List<String> dummy;
+                List<String> test1 = lines.get(i);
+                List<String> test2 = lines.get(i+1);
+                if(a>b){
+                   dummy = test1;
+                    test1 = test2;
+                    test2 = dummy;
+                }
+                lines.set(i, test1);
+                lines.set(i+1, test2);
+            }
+            }
+        }
+        // choose position
+        for (int i = 1; i < 105; i++) {
+            if (lines.get(i).get(1).equalsIgnoreCase(Position)) {
+                System.out.println(lines.get(i));
+            }
+        }
+            inputStream.close();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+        return fileName;
+    }
 
 }
