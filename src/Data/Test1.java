@@ -8,10 +8,14 @@ import java.util.ArrayList;
 import Data.methods;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -35,8 +39,8 @@ public class Test1 extends Application {
         team.setText("Team");
         name.setText("Name");
         age.setText("Age");
-        age.setOnAction(new EventHandler<ActionEvent>() {
 
+        age.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
@@ -50,6 +54,8 @@ public class Test1 extends Application {
                 }
                
             }
+
+
         });
         mp.setOnAction(new EventHandler<ActionEvent>() {
 
