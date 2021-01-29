@@ -40,8 +40,8 @@ public class methods {
             int iAge;
             if(token ==1){
                 int a;
-            for(int j = 1; j<104; j++){
-                for(int i = 1; i<104; i++){
+            for(int j = 1; j<105; j++){
+                for(int i = 1; i<105; i++){
                 a = Integer.parseInt(lines.get(i).get(2));
                 int b = Integer.parseInt(lines.get(i+1).get(2));
                 List<String> dummy;
@@ -63,7 +63,7 @@ public class methods {
                 //System.out.println("trial 1"+lines.get(i));
                //System.out.println("trial 2"+lines.get(i+1));
             }
-            for(int j = 1; j<104; j++){
+            for(int j = 1; j<105; j++){
             System.out.println("whole arraylist"+lines.get(j));
             }
         }
@@ -72,7 +72,7 @@ public class methods {
             BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("enter team");
             String tm = keyboard.readLine();
-            for (int i = 1; i < 652; i++) {
+            for (int i = 1; i < 105; i++) {
                 if (lines.get(i).get(3).equalsIgnoreCase(tm)) {
                     System.out.println(lines.get(i));
                 }
@@ -81,7 +81,7 @@ public class methods {
             // choose age
             System.out.println("enter age");
             String age = keyboard.readLine();
-            for (int i = 1; i < 652; i++) {
+            for (int i = 1; i < 105; i++) {
                 if (lines.get(i).get(2).equalsIgnoreCase(age)) {
                     System.out.println(lines.get(i));
                 }
@@ -90,7 +90,7 @@ public class methods {
             // choose name
             System.out.println("enter name (firstname_lastname)");
             String nm = keyboard.readLine();
-            for (int i = 1; i < 652; i++) {
+            for (int i = 1; i < 105; i++) {
                 if (lines.get(i).get(0).equalsIgnoreCase(nm)) {
                     System.out.println(lines.get(i));
                 }
@@ -99,21 +99,11 @@ public class methods {
             // choose position
             System.out.println("enter position (short form)");
             String p = keyboard.readLine();
-            for (int i = 1; i < 652; i++) {
+            for (int i = 1; i < 105; i++) {
                 if (lines.get(i).get(1).equalsIgnoreCase(p)) {
                     System.out.println(lines.get(i));
                 }
             }
-
-            // int value = Integer.parseInt(lines.get(2).get(2));
-            // String a = "Adams";
-            // if(lines.get(2).get(0).equalsIgnoreCase(a)){
-            // System.out.println("yes");
-            // }
-
-            // System.out.println(lines.get(2).get(0));
-            // System.out.println(lines.get(2));
-            // System.out.println(lines.get(3));
 
             inputStream.close();
         } catch (FileNotFoundException e) {
@@ -121,24 +111,6 @@ public class methods {
         }
 
     }
-
-    public static void PlayerSearch() {
-
-    }
-
-    /*
-     * public static void AgeSearch(){ int age; int token = 0;
-     * 
-     * if(age<19 || age>43){ System.out.
-     * println("Error in search, please enter an age that is between 19-43."); }else
-     * if(age == 19){ Pattern p = Pattern.compile("a*b"); Matcher m =
-     * p.matcher("aaaaab"); boolean b = m.matches(); }else if(age == 40 || age == 41
-     * || age == 42){
-     * 
-     * }
-     * 
-     * }
-     */
 
     public static void selectionSort(int[] arr) {
         for (int curIndex = 0; curIndex < arr.length - 1; curIndex++) {
@@ -164,13 +136,6 @@ public class methods {
         int temp = arr[x];
         arr[x] = arr[y];
         arr[y] = temp;
-    }
-
-    public static List<String> swap2(List<String> list, List<String> list2) {
-
-        List<String> temp = list;
-        list = list2;
-        return list2 = temp;
     }
     
 
