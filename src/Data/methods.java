@@ -4,7 +4,6 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.util.*;
-import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -14,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-
 public class methods {
     public static void main (String[] args) throws IOException{
 
@@ -22,6 +20,7 @@ public class methods {
         File file = new File(fileName);
 
         List<List<String>> lines = new ArrayList<>();
+        ArrayList<ArrayList<String>> testing = new ArrayList<ArrayList<String>>();
         Scanner inputStream;
 
         try{
@@ -37,12 +36,26 @@ public class methods {
                 
             }
 
-            for(int i = 1; i<652; i++){
-                int a = Integer.parseInt(lines.get(i).get(2));
-                //System.out.println(a);
-                int[] ar = {a};
-                //selectionSort(ar);
+            int token = 1;
+            int iAge;
+            while(token ==1){
+                int a;
+            for(int i = 1; i<105; i++){
+                a = Integer.parseInt(lines.get(i).get(2));
+                int b = Integer.parseInt(lines.get(i+1).get(2));
+                int[] arr = {a,b};
+                selectionSort(arr);
+                //System.out.println(Arrays.toString(arr));
+                if(a>b){
+                    swap2(lines.get(i), lines.get(i+1));
+                    System.out.println(lines.get(i));
+                }else if(b>a){
+                    swap2(lines.get(i+1), lines.get(i));
+                    System.out.println(lines.get(i));
+                }
+                
             }
+        }
 
             // choose team
             BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
@@ -116,34 +129,39 @@ public class methods {
      * }
      */
 
-    public static void selectionSort(int[] arr)
-        {
-            for(int curIndex = 0; curIndex < arr.length - 1; curIndex++)
-            {
-                System.out.println(Arrays.toString(arr));
-                int minIndex = findMin(arr, curIndex);
-                swap(arr, curIndex, minIndex);
+    public static void selectionSort(int[] arr) {
+        for (int curIndex = 0; curIndex < arr.length - 1; curIndex++) {
+            System.out.println(Arrays.toString(arr));
+            int minIndex = findMin(arr, curIndex);
+            swap(arr, curIndex, minIndex);
+        }
+    }
+
+    public static int findMin(int[] arr, int startingIndex) {
+        int minIndex = startingIndex;
+
+        for (int i = minIndex + 1; i < arr.length; i++) {
+            if (arr[i] < arr[minIndex]) {
+                minIndex = i;
             }
         }
 
-        public static int findMin(int[] arr, int startingIndex) {
-            int minIndex = startingIndex;
+        return minIndex;
+    }
 
-            for (int i = minIndex + 1; i < arr.length; i++) {
-                if (arr[i] < arr[minIndex]) {
-                    minIndex = i;
-                }
-            }
-
-            return minIndex;
-        }
-
-        public static void swap(int[] arr, int x, int y)
-    {
+    public static void swap(int[] arr, int x, int y) {
         int temp = arr[x];
         arr[x] = arr[y];
         arr[y] = temp;
     }
+
+    public static void swap2(List<String> list, List<String> list2) {
+
+        List<String> temp = list;
+        list = list2;
+        list2 = temp;
+    }
+    
 
     public static void MakeList(){
         String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
