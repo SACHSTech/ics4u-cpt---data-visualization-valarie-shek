@@ -52,9 +52,6 @@ public class Barchart extends Application {
         primaryStage.show();
     }
  
-    /**
-     * Java main for when running without JavaFX launcher
-     */
     public static void main(String[] args) {
         launch(args);
     }
