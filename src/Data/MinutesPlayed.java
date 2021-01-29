@@ -1,9 +1,22 @@
 package Data;
 
 public class MinutesPlayed extends MainMenu{
+
     private int mp;
     private int TotalNum;
     private double average;
+    
+    
+    public MinutesPlayed(String name, int mp) {
+        super(name);
+        this.mp= mp;
+    }
+        
+
+    public MinutesPlayed(int mp)
+    {
+        this("Minutes Played", mp);
+    }
 
     public int TotalNum(){
         return TotalNum++;

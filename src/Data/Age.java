@@ -2,6 +2,10 @@ package Data;
 
 public class Age extends MainMenu{
     
+    public Age(String name) {
+        super(name);
+    }
+
     private int Age;
     private int TotalNum;
     private double average;

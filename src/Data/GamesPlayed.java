@@ -5,6 +5,18 @@ public class GamesPlayed extends MainMenu{
     private int TotalNum;
     private double average;
 
+
+    public GamesPlayed(String name, int gamesPlayed)
+    {
+        super(name);
+        this.gamesPlayed= gamesPlayed;
+    }
+
+    public GamesPlayed(int gamesPlayed)
+    {
+        this("Games Played", gamesPlayed);
+    }
+
     public int TotalNum(){
         return TotalNum++;
     }

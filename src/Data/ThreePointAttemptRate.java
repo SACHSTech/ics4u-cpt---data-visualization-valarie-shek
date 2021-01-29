@@ -5,6 +5,20 @@ public class ThreePointAttemptRate extends MainMenu{
     private int TotalNum;
     private double average;
 
+    
+    
+    public ThreePointAttemptRate(String name, int tpar) {
+        super(name);
+        this.tpar= tpar;
+    }
+        
+        
+
+    public ThreePointAttemptRate(int tpar)
+    {
+        this("Three Point Attemp Rate", tpar);
+    }
+
     public int TotalNum(){
         return TotalNum++;
     }
