@@ -2,18 +2,18 @@ package Data;
 
 public class MinutesPlayed extends MainMenu{
 
-    private int mp;
+    private double mp;
     private int TotalNum;
     private double average;
     
     
-    public MinutesPlayed(String name, int mp) {
+    public MinutesPlayed(String name, double mp) {
         super(name);
         this.mp= mp;
     }
         
 
-    public MinutesPlayed(int mp)
+    public MinutesPlayed(double mp)
     {
         this("Minutes Played", mp);
     }
@@ -22,24 +22,16 @@ public class MinutesPlayed extends MainMenu{
         return TotalNum++;
     }
 
-    public void setMP(int mp) {
+    public void setMP(double mp) {
         this.mp = mp;
     }
 
-    public int getMP(){
+    public double getMP(){
         return mp;
     }
     
     public double getAverage(){
+        average = mp/104;
         return average;
-    }
-
-    public void setAverage(int mp){
-        double holder = 0;
-
-        average = holder + mp;
-        holder = average;
-
-        this.average = mp;
     }
 }

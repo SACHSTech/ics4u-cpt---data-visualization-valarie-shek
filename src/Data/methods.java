@@ -119,6 +119,102 @@ public class methods {
         return ages;
     }
     
+    public static double GamesPlayed(){
+        String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
+        File file = new File(fileName);
+
+        List<List<String>> lines = new ArrayList<>();
+        Scanner inputStream;
+
+        double gp = 0;
+        try{
+            inputStream = new Scanner (file);
+
+            System.out.println("Player       Pos     Age    Tm    G    MP    PER    TS%    3PAr    FTr    ORB%    DRB%     TRB%    AST%    STL%    BLK%    TOV%    USG%    OWS    DWS    WS    WS/48    OBPM    DBPM    BPM    VORP");
+            
+
+            while(inputStream.hasNext()){
+                String line = inputStream.next();
+                String[] values = line.split(",");
+                lines.add(Arrays.asList(values));
+                
+            }
+        for (int i = 1; i < 105; i++) {
+            double dummy = Double.parseDouble(lines.get(i).get(4));
+            gp = dummy + gp;
+            }
+        
+            inputStream.close();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+        return gp;
+    }
+
+    public static double MinutesPlayed(){
+        String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
+        File file = new File(fileName);
+
+        List<List<String>> lines = new ArrayList<>();
+        Scanner inputStream;
+
+        double mp = 0;
+        try{
+            inputStream = new Scanner (file);
+
+            System.out.println("Player       Pos     Age    Tm    G    MP    PER    TS%    3PAr    FTr    ORB%    DRB%     TRB%    AST%    STL%    BLK%    TOV%    USG%    OWS    DWS    WS    WS/48    OBPM    DBPM    BPM    VORP");
+            
+
+            while(inputStream.hasNext()){
+                String line = inputStream.next();
+                String[] values = line.split(",");
+                lines.add(Arrays.asList(values));
+                
+            }
+        for (int i = 1; i < 105; i++) {
+            double dummy = Double.parseDouble(lines.get(i).get(5));
+            mp = dummy + mp;
+            }
+        
+            inputStream.close();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+        return mp;
+    }
+
+    public static double TPAR(){
+        String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
+        File file = new File(fileName);
+
+        List<List<String>> lines = new ArrayList<>();
+        Scanner inputStream;
+
+        double tpar = 0;
+        try{
+            inputStream = new Scanner (file);
+
+            System.out.println("Player       Pos     Age    Tm    G    MP    PER    TS%    3PAr    FTr    ORB%    DRB%     TRB%    AST%    STL%    BLK%    TOV%    USG%    OWS    DWS    WS    WS/48    OBPM    DBPM    BPM    VORP");
+            
+
+            while(inputStream.hasNext()){
+                String line = inputStream.next();
+                String[] values = line.split(",");
+                lines.add(Arrays.asList(values));
+                
+            }
+        for (int i = 1; i < 105; i++) {
+            double dummy = Double.parseDouble(lines.get(i).get(8));
+            tpar = dummy + tpar;
+            }
+        
+            inputStream.close();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+        return tpar;
+    }
+
     public static String AgeMethod(String Age) {
         String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
         File file = new File(fileName);

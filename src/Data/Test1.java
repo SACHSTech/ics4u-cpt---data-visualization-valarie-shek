@@ -23,7 +23,6 @@ import javafx.stage.Stage;
 
 public class Test1 extends Application {
     public static void main(String[] args) throws IOException {
-        System.out.println("testing");
         launch(args);
     }
 
@@ -36,12 +35,46 @@ public class Test1 extends Application {
         Button position = new Button();
         Button mp = new Button();
         Button Aaverage = new Button();
+        Button GPaverage = new Button();
+        Button MPaverage = new Button();
+        Button TPARaverage = new Button();
+
+        GPaverage.setText("Game Played Average");
+        MPaverage.setText("Minutes Played Average");
+        TPARaverage.setText("Three Points Attempt Rate Average");
         Aaverage.setText("Average Age");
         mp.setText("Minutes Played");
         position.setText("Position");
         team.setText("Team");
         name.setText("Name");
         age.setText("Age");
+
+        TPARaverage.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+            double tpar = methods.TPAR();
+            MainMenu ThreePAR = new ThreePointAttemptRate(tpar);
+            System.out.println(ThreePAR.getAverage());
+            }
+        });
+
+        MPaverage.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+            double mp = methods.MinutesPlayed();
+            MainMenu MP = new MinutesPlayed(mp);
+            System.out.println(MP.getAverage());
+            }
+        });
+
+        GPaverage.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+            double gp = methods.GamesPlayed();
+            MainMenu GP = new GamesPlayed(gp);
+            System.out.println(GP.getAverage());
+            }
+        });
 
         Aaverage.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -131,15 +164,19 @@ public class Test1 extends Application {
         }
     });
         
-        age.setMaxSize(150, 75);
-        name.setMaxSize(150, 75);
-        team.setMaxSize(150, 75);
-        position.setMaxSize(150, 75);
-        mp.setMaxSize(150, 75);
-        Aaverage.setMaxSize(150,75);
-        HBox hbox = new HBox(age, Aaverage, name, team, position, mp);
+        age.setMaxSize(120, 100);
+        name.setMaxSize(120, 100);
+        team.setMaxSize(120, 100);
+        position.setMaxSize(120, 100);
+        mp.setMaxSize(120, 100);
+        Aaverage.setMaxSize(120,100);
+        TPARaverage.setMaxSize(220,100);
+        MPaverage.setMaxSize(150,100);
+        GPaverage.setMaxSize(150,100);
+        HBox hbox = new HBox(age, Aaverage, name, team, position, mp, MPaverage, TPARaverage, GPaverage);
         hbox.setAlignment(Pos.CENTER);
-        primaryStage.setScene(new Scene(hbox, 600, 600));
+        hbox.setSpacing(5);
+        primaryStage.setScene(new Scene(hbox, 900, 600));
         primaryStage.show();
     
     }

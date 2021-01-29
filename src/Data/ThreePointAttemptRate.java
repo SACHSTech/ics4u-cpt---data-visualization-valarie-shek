@@ -1,14 +1,14 @@
 package Data;
 
 public class ThreePointAttemptRate extends MainMenu{
-    private int tpar;
+    private double tpar;
     private int TotalNum;
     private double average;    
-    public ThreePointAttemptRate(String name, int tpar) {
+    public ThreePointAttemptRate(String name, double tpar) {
         super(name);
         this.tpar= tpar;
     }
-    public ThreePointAttemptRate(int tpar)
+    public ThreePointAttemptRate(double tpar)
     {
         this("Three Point Attemp Rate", tpar);
     }
@@ -21,19 +21,12 @@ public class ThreePointAttemptRate extends MainMenu{
         this.tpar = tpar;
     }
 
-    public int getTPAR(){
+    public double getTPAR(){
         return tpar;
     }
     
     public double getAverage(){
+        average = tpar/104;
         return average;
-    }
-
-    public void setAverage(int tpar){
-        double holder = 0;
-
-        average = holder + tpar;
-        holder = average;
-        this.average = tpar;
     }
 }
