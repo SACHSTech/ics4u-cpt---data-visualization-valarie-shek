@@ -4,6 +4,7 @@ public class Age extends MainMenu{
     
     private int Age;
     private int TotalNum;
+    private double average;
 
     public int TotalNum(){
         return TotalNum++;
@@ -18,9 +19,15 @@ public class Age extends MainMenu{
     }
     
     public double getAverage(){
-        for(int i = 1; i<105; i++){
-           Age = Age+Age; 
-        }
-        return Age/TotalNum;
+        return average;
+    }
+
+    public void setAverage(int Age){
+        double holder = 0;
+
+        average = holder + Age;
+        holder = average;
+
+        this.average = Age;
     }
 }

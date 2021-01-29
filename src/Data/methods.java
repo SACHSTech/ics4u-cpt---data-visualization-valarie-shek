@@ -232,6 +232,72 @@ public class methods {
         }
         return fileName;
     }
+
+    public static int MP(int mp) {
+        String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
+        File file = new File(fileName);
+
+        List<List<String>> lines = new ArrayList<>();
+        Scanner inputStream;
+
+        try{
+            inputStream = new Scanner (file);
+
+            System.out.println("Player       Pos     Age    Tm    G    MP    PER    TS%    3PAr    FTr    ORB%    DRB%     TRB%    AST%    STL%    BLK%    TOV%    USG%    OWS    DWS    WS    WS/48    OBPM    DBPM    BPM    VORP");
+            
+
+            while(inputStream.hasNext()){
+                String line = inputStream.next();
+                String[] values = line.split(",");
+                lines.add(Arrays.asList(values));
+                
+            }
+            int token = 1;
+            if(token ==1){
+                int a;
+            for(int j = 1; j<104; j++){
+                for(int i = 1; i<104; i++){
+                a = Integer.parseInt(lines.get(i).get(5));
+                int b = Integer.parseInt(lines.get(i+1).get(5));
+                List<String> dummy;
+                List<String> test1 = lines.get(i);
+                List<String> test2 = lines.get(i+1);
+                if(a>b){
+                   dummy = test1;
+                    test1 = test2;
+                    test2 = dummy;
+                }
+                lines.set(i, test1);
+                lines.set(i+1, test2);
+            }
+            }
+            int start = 1;
+            int end = 104;
+            
+            int run = 1;
+            //making an array
+                int[] sidewaysArray = new int[200];
+                for(int i = start; i<end; i++){
+                    int b = Integer.parseInt(lines.get(i).get(5));
+                    sidewaysArray[i-1] = b;
+                }
+                while(run == 1){
+                    int index1 = binarySearch(sidewaysArray, mp);
+                    if(index1 <0){
+                        run = 0;
+                     } else {
+                     System.out.println(Arrays.asList(lines.get(index1+1)));
+                     sidewaysArray[index1] = 0;
+                }    
+        }
+            }inputStream.close();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+        int d = Integer.parseInt(fileName);
+        return d;
+    }
+
         
     public static String TeamMethod(String Team) {
         String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";

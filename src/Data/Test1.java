@@ -29,6 +29,8 @@ public class Test1 extends Application {
         Button name = new Button();
         Button team = new Button();
         Button position = new Button();
+        Button mp = new Button();
+        mp.setText("Minutes Played");
         position.setText("Position");
         team.setText("Team");
         name.setText("Name");
@@ -43,6 +45,22 @@ public class Test1 extends Application {
                 try {
                     Age = keyboard.readLine();
                     System.out.println(methods.AgeMethod(Age));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+               
+            }
+        });
+        mp.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+                System.out.println("enter minutes played");
+                int mp;
+                try {
+                    mp = Integer.parseInt(keyboard.readLine());
+                    System.out.println(methods.MP(mp));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -95,14 +113,14 @@ public class Test1 extends Application {
         }
     });
         
-        StackPane root = new StackPane();
         age.setMaxSize(150, 75);
         name.setMaxSize(150, 75);
         team.setMaxSize(150, 75);
         position.setMaxSize(150, 75);
-        HBox hbox = new HBox(age, name, team, position);
+        mp.setMaxSize(150, 75);
+        HBox hbox = new HBox(age, name, team, position, mp);
         hbox.setAlignment(Pos.CENTER);
-        primaryStage.setScene(new Scene(hbox, 300, 250));
+        primaryStage.setScene(new Scene(hbox, 350, 300));
         primaryStage.show();
     
     }
