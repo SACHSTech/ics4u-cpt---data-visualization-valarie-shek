@@ -10,8 +10,10 @@ import Data.methods;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -94,11 +96,13 @@ public class Test1 extends Application {
     });
         
         StackPane root = new StackPane();
-        root.getChildren().add(age);
-        root.getChildren().add(name);
-        root.getChildren().add(team);
-        root.getChildren().add(position);
-        primaryStage.setScene(new Scene(root, 600, 550));
+        age.setMaxSize(150, 75);
+        name.setMaxSize(150, 75);
+        team.setMaxSize(150, 75);
+        position.setMaxSize(150, 75);
+        HBox hbox = new HBox(age, name, team, position);
+        hbox.setAlignment(Pos.CENTER);
+        primaryStage.setScene(new Scene(hbox, 300, 250));
         primaryStage.show();
     
     }
