@@ -1,7 +1,7 @@
 package Data;
 
 public abstract class MainMenu {
-    public MainMenu(){
+    public MainMenu(String name){
 
     }
 
