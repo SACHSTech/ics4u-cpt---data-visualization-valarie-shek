@@ -4,6 +4,8 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -56,12 +58,39 @@ public class methods {
             }
             }
             for(int j = 0; j<104; j++){
-            System.out.println("whole arraylist"+lines.get(j));
+            System.out.println(lines.get(j));
             }
         }
 
-            // choose team
+            //binary search age
             BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("enter age");
+            int Age = Integer.parseInt(keyboard.readLine());
+
+            int start = 1;
+            int end = 104;
+            
+            int run = 1;
+            //making an array
+            
+                int[] sidewaysArray = new int[200];
+                for(int i = start; i<end; i++){
+                    int b = Integer.parseInt(lines.get(i).get(2));
+                    sidewaysArray[i-1] = b;
+                }
+                while(run == 1){
+                    int index1 = binarySearch(sidewaysArray, Age);
+                    if(index1 <0){
+                        run = 0;
+                         System.out.println("DEBUG1"+run);
+                     } else {
+                     System.out.println(lines.get(index1+1));
+                     //sidewaysArray = removeTheElement(sidewaysArray,index1); //Plan B, try to remove an element in the array
+                     sidewaysArray[index1] = 0;
+                }
+                
+        }
+            // choose team
             System.out.println("enter team");
             String tm = keyboard.readLine();
             for (int i = 1; i < 105; i++) {
@@ -104,6 +133,20 @@ public class methods {
 
     }
 
+    private static int[] removeTheElement(int[] sidewaysArray, int index1) {
+        if (sidewaysArray == null
+            || index1 <0
+            || index1 >= sidewaysArray.length) {
+            return sidewaysArray;
+            }    
+        List<Integer> arrayList = IntStream.of(sidewaysArray).boxed().collect(Collectors.toList());
+        
+        arrayList.remove(index1);
+
+        return arrayList.stream().mapToInt(Integer::intValue).toArray();
+        
+    }
+
     public static void selectionSort(int[] arr) {
         for (int curIndex = 0; curIndex < arr.length - 1; curIndex++) {
             System.out.println(Arrays.toString(arr));
@@ -129,7 +172,34 @@ public class methods {
         arr[x] = arr[y];
         arr[y] = temp;
     }
-    
+
+    public static int binarySearch(int[] array, int key)
+    {
+        int low = 0;
+        int high = array.length - 1;
+        
+        while(low <= high)
+        {
+            int mid = (low + high) / 2;
+            
+            int cur = array[mid];
+            
+            if(cur == key)
+            {
+                return mid;
+            }
+            else if(cur < key)
+            {
+                low = mid + 1;
+            }
+            else
+            {
+                high = mid - 1;
+            }
+        }
+        
+        return -1;
+    }
 
     public static String AgeMethod(String Age) {
         String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
