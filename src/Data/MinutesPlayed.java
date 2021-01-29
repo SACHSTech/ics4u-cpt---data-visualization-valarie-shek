@@ -1,9 +1,32 @@
 package Data;
 
 public class MinutesPlayed extends MainMenu{
-    private double test1;
+    private int mp;
+    private int TotalNum;
+    private double average;
 
+    public int TotalNum(){
+        return TotalNum++;
+    }
+
+    public void setMP(int mp) {
+        this.mp = mp;
+    }
+
+    public int getMP(){
+        return mp;
+    }
+    
     public double getAverage(){
-        return test1;
+        return average;
+    }
+
+    public void setAverage(int mp){
+        double holder = 0;
+
+        average = holder + mp;
+        holder = average;
+
+        this.average = mp;
     }
 }

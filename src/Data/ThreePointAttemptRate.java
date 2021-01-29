@@ -1,9 +1,31 @@
 package Data;
 
 public class ThreePointAttemptRate extends MainMenu{
-    private double test1;
+    private int tpar;
+    private int TotalNum;
+    private double average;
 
+    public int TotalNum(){
+        return TotalNum++;
+    }
+
+    public void setTPAR(int tpar) {
+        this.tpar = tpar;
+    }
+
+    public int getTPAR(){
+        return tpar;
+    }
+    
     public double getAverage(){
-        return test1;
+        return average;
+    }
+
+    public void setAverage(int tpar){
+        double holder = 0;
+
+        average = holder + tpar;
+        holder = average;
+        this.average = tpar;
     }
 }
