@@ -44,10 +44,10 @@ public class Test1 extends Application {
         TPARaverage.setText("Three Points Attempt Rate Average");
         Aaverage.setText("Average Age");
         mp.setText("Minutes Played");
-        position.setText("Position");
-        team.setText("Team");
-        name.setText("Name");
-        age.setText("Age");
+        position.setText("Filter:\nPosition");
+        team.setText("Filter:\nTeam");
+        name.setText("Filter:\nName");
+        age.setText("Filter:\nAge");
 
         TPARaverage.setOnAction(new EventHandler<ActionEvent>() {
             @Override
