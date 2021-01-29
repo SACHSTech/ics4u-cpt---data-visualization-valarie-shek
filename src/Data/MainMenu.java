@@ -2,8 +2,6 @@ package Data;
 
 public abstract class MainMenu {
     private String name;
-    public MainMenu(){
-    }  
     
     public MainMenu(String name)
     {
