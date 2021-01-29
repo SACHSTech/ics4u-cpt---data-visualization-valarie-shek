@@ -17,13 +17,13 @@ import javafx.stage.Stage;
 
 
 
-public class Test extends Application{
+public class Test1 extends Application{
     public static void main (String[] args) throws IOException{
         launch(args);
         BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("enter age");
-        String age = keyboard.readLine();
-        System.out.println(methods.AgeMethod(age));
+        String Age = keyboard.readLine();
+        System.out.println(methods.AgeMethod(Age));
     }
 
         @Override
