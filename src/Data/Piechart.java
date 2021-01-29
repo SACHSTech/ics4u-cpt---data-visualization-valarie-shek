@@ -16,8 +16,7 @@ public class Piechart extends Application {
         stage.setWidth(500);
         stage.setHeight(500);
  
-        ObservableList<PieChart.Data> pieChartData =
-                FXCollections.observableArrayList(
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
                 new PieChart.Data("Grapefruit", 13),
                 new PieChart.Data("Oranges", 25),
                 new PieChart.Data("Plums", 10),
