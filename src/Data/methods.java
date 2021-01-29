@@ -38,22 +38,33 @@ public class methods {
 
             int token = 1;
             int iAge;
-            while(token ==1){
+            if(token ==1){
                 int a;
-            for(int i = 1; i<105; i++){
+            for(int j = 1; j<20; j++){
+                for(int i = 1; i<20; i++){
                 a = Integer.parseInt(lines.get(i).get(2));
                 int b = Integer.parseInt(lines.get(i+1).get(2));
-                int[] arr = {a,b};
-                selectionSort(arr);
-                //System.out.println(Arrays.toString(arr));
+                List<String> dummy;
+                List<String> test1 = lines.get(i);
+                List<String> test2 = lines.get(i+1);
                 if(a>b){
-                    swap2(lines.get(i), lines.get(i+1));
-                    System.out.println(lines.get(i));
-                }else if(b>a){
-                    swap2(lines.get(i+1), lines.get(i));
-                    System.out.println(lines.get(i));
+                   dummy = test1;
+                  // System.out.println("dummy trial 1"+dummy);
+                    test1 = test2;
+                    test2 = dummy;
+
+                   // System.out.println("test1"+test1);
+                    //System.out.println("test2"+test2);
                 }
+                lines.set(i, test1);
+                lines.set(i+1, test2);
+            }
                 
+                //System.out.println("trial 1"+lines.get(i));
+               //System.out.println("trial 2"+lines.get(i+1));
+            }
+            for(int j = 1; j<20; j++){
+            System.out.println("whole arraylist"+lines.get(j));
             }
         }
 
@@ -155,11 +166,11 @@ public class methods {
         arr[y] = temp;
     }
 
-    public static void swap2(List<String> list, List<String> list2) {
+    public static List<String> swap2(List<String> list, List<String> list2) {
 
         List<String> temp = list;
         list = list2;
-        list2 = temp;
+        return list2 = temp;
     }
     
 
