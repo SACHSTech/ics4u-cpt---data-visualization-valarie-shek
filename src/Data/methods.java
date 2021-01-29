@@ -40,8 +40,8 @@ public class methods {
             int iAge;
             if(token ==1){
                 int a;
-            for(int j = 1; j<20; j++){
-                for(int i = 1; i<20; i++){
+            for(int j = 1; j<104; j++){
+                for(int i = 1; i<104; i++){
                 a = Integer.parseInt(lines.get(i).get(2));
                 int b = Integer.parseInt(lines.get(i+1).get(2));
                 List<String> dummy;
@@ -63,7 +63,7 @@ public class methods {
                 //System.out.println("trial 1"+lines.get(i));
                //System.out.println("trial 2"+lines.get(i+1));
             }
-            for(int j = 1; j<20; j++){
+            for(int j = 1; j<104; j++){
             System.out.println("whole arraylist"+lines.get(j));
             }
         }
