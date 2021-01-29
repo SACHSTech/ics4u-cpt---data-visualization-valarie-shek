@@ -37,11 +37,10 @@ public class methods {
             }
 
             int token = 1;
-            int iAge;
             if(token ==1){
                 int a;
-            for(int j = 1; j<105; j++){
-                for(int i = 1; i<105; i++){
+            for(int j = 1; j<104; j++){
+                for(int i = 1; i<104; i++){
                 a = Integer.parseInt(lines.get(i).get(2));
                 int b = Integer.parseInt(lines.get(i+1).get(2));
                 List<String> dummy;
@@ -49,21 +48,14 @@ public class methods {
                 List<String> test2 = lines.get(i+1);
                 if(a>b){
                    dummy = test1;
-                  // System.out.println("dummy trial 1"+dummy);
                     test1 = test2;
                     test2 = dummy;
-
-                   // System.out.println("test1"+test1);
-                    //System.out.println("test2"+test2);
                 }
                 lines.set(i, test1);
                 lines.set(i+1, test2);
             }
-                
-                //System.out.println("trial 1"+lines.get(i));
-               //System.out.println("trial 2"+lines.get(i+1));
             }
-            for(int j = 1; j<105; j++){
+            for(int j = 0; j<104; j++){
             System.out.println("whole arraylist"+lines.get(j));
             }
         }
@@ -139,7 +131,7 @@ public class methods {
     }
     
 
-    public static void MakeList(){
+    public static String AgeMethod(String Age) {
         String fileName = "C:\\ICS4U\\ics4u-cpt---data-visualization-valarie-shek\\src\\Data\\nba_2020_advanced.csv";
         File file = new File(fileName);
 
@@ -158,11 +150,49 @@ public class methods {
                 lines.add(Arrays.asList(values));
                 
             }
+            int token = 1;
+            if(token ==1){
+                int a;
+            for(int j = 1; j<104; j++){
+                for(int i = 1; i<104; i++){
+                a = Integer.parseInt(lines.get(i).get(2));
+                int b = Integer.parseInt(lines.get(i+1).get(2));
+                List<String> dummy;
+                List<String> test1 = lines.get(i);
+                List<String> test2 = lines.get(i+1);
+                if(a>b){
+                   dummy = test1;
+                    test1 = test2;
+                    test2 = dummy;
+                }
+                lines.set(i, test1);
+                lines.set(i+1, test2);
+            }
+            }
+            for(int j = 0; j<104; j++){
+            System.out.println("whole arraylist"+lines.get(j));
+            }
+        }
+
+        // choose age
+        //BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+        //System.out.println("enter age");
+        //String age = keyboard.readLine();
+        //String age;
+        for (int i = 1; i < 105; i++) {
+            if (lines.get(i).get(2).equalsIgnoreCase(Age)) {
+                System.out.println(lines.get(i));
+            }
+        }
+
+
+            
 
             inputStream.close();
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }
+        return fileName;
     }
         
 
