@@ -23,6 +23,8 @@ public class HelloWorld extends Application {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Hello World!");
+                System.out.println("test Trial");
+                System.out.println("Test2");
             }
         });
         
